@@ -6,14 +6,24 @@ A tiny command-line tool that reads a trades CSV and prints **realized PnL event
 - Only prints rows where a trade **matches existing inventory** (pure opening trades are omitted).  
 - Supports **shorts** (SELL first → later BUY realizes PnL; BUY first → later SELL realizes PnL).  
 - **Output only**, no files written. **PNL is printed with two decimal places**.
+## Quick Setup (Linux / WSL / macOS)
+**One-time setup script** (creates `.venv` and installs deps):
+```bash
+# Option A: run the helper script
+bash setup.sh
 
+# Then activate the virtual environment
+source .venv/bin/activate
+```
 ## Requirements
 - Linux/macOS (Windows WSL also fine)
 - Python 3.9+
 - pandas>=2.0
 - numpy>=1.26
 ```bash
-python3 -m pip install --upgrade pip pandas
+python3 -m pip install --upgrade pip
+python3 -m pip install pandas
+python3 -m pip install numpy
 ```
 
 ## Usage
