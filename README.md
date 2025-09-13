@@ -15,9 +15,9 @@ bash setup.sh
 # Then activate the virtual environment
 source .venv/bin/activate
 ```
-# Option B: manually install
-#requirements.txt
 ```bash
+# Option B: manually install in requirements.txt
+
 python3 -m pip install --upgrade pip
 python3 -m pip install pandas
 python3 -m pip install numpy
