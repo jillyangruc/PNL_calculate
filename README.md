@@ -15,11 +15,8 @@ bash setup.sh
 # Then activate the virtual environment
 source .venv/bin/activate
 ```
-## Requirements
-- Linux/macOS (Windows WSL also fine)
-- Python 3.9+
-- pandas>=2.0
-- numpy>=1.26
+# Option B: manually install
+#requirements.txt
 ```bash
 python3 -m pip install --upgrade pip
 python3 -m pip install pandas
