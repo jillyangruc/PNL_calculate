@@ -1,8 +1,8 @@
 # PNL_calculate
-Compute realized PnL with FIFO/LIFO matching (shorts supported). Prints to stdout.
-# `calculate_PNL.py` — Realized PnL with FIFO/LIFO (shorts supported)
+Compute realized PnL with fifo/lifo matching (shorts supported). Prints to stdout.
+# `calculate_PNL.py` — Realized PnL with fifo/lifo (shorts supported)
 
-A tiny command-line tool that reads a trades CSV and prints **realized PnL events** using **FIFO** or **LIFO** inventory matching.  
+A tiny command-line tool that reads a trades CSV and prints **realized PnL events** using **fifo** or **lifo** inventory matching.  
 - Only prints rows where a trade **matches existing inventory** (pure opening trades are omitted).  
 - Supports **shorts** (SELL first → later BUY realizes PnL; BUY first → later SELL realizes PnL).  
 - **Output only**, no files written. **PNL is printed with two decimal places**.
@@ -17,12 +17,12 @@ python3 -m pip install --upgrade pip pandas
 
 ## Usage
 ```bash
-# FIFO (default) or LIFO
+# fifo (default) or lifo
 python3 calculate_PNL.py trades.csv fifo
 python3 calculate_PNL.py trades.csv lifo
 # or make it executable
 chmod +x calculate_PNL.py
-./calculate_PNL.py trades.csv FIFO
+./calculate_PNL.py trades.csv fifo
 ```
 
 ### CSV schema (required columns)
@@ -46,7 +46,7 @@ TIMESTAMP | SYMBOL | PNL
 
 ## Examples
 
-### 1) SELL first, then BUY covers (LIFO or FIFO both supported)
+### 1) SELL first, then BUY covers (lifo or fifo both supported)
 **trades.csv**
 ```csv
 TIMESTAMP,SYMBOL,BUY_OR_SELL,PRICE,QUANTITY
@@ -56,7 +56,7 @@ TIMESTAMP,SYMBOL,BUY_OR_SELL,PRICE,QUANTITY
 103,TFS,S,12.75,10
 ```
 
-**Run (FIFO):**
+**Run (fifo):**
 ```bash
 python3 calculate_PNL.py trades.csv fifo
 ```
@@ -68,7 +68,7 @@ python3 calculate_PNL.py trades.csv fifo
        104    TFS  2.50
 ```
 
-**Run (FIFO):**
+**Run (fifo):**
 ```bash
 python3 calculate_PNL.py trades.csv lifo
 ```
@@ -84,7 +84,7 @@ python3 calculate_PNL.py trades.csv lifo
 ## How PnL is computed
 - **SELL vs existing long lot:** `PNL = (sell_price - entry_price) * matched_qty`
 - **BUY vs existing short lot:** `PNL = (entry_price - buy_price) * matched_qty`
-- Matching order is **FIFO** (earliest in) or **LIFO** (latest in) based on your argument.
+- Matching order is **fifo** (earliest in) or **lifo** (latest in) based on your argument.
 - Any unmatched remainder of a trade becomes a **new lot** (opening inventory) and **doesn’t print** a row.
 
 
