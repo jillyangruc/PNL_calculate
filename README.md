@@ -10,7 +10,8 @@ A tiny command-line tool that reads a trades CSV and prints **realized PnL event
 ## Requirements
 - Linux/macOS (Windows WSL also fine)
 - Python 3.9+
-- `pandas`
+- pandas>=2.0
+- numpy>=1.26
 ```bash
 python3 -m pip install --upgrade pip pandas
 ```
