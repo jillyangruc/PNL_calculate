@@ -6,7 +6,7 @@ A tiny command-line tool that reads a trades CSV and prints **realized PnL event
 - Only prints rows where a trade **matches existing inventory** (pure opening trades are omitted).  
 - Supports **shorts** (SELL first → later BUY realizes PnL; BUY first → later SELL realizes PnL).  
 - **Output only**, no files written. **PNL is printed with two decimal places**.
-## Quick Setup (Linux / WSL / macOS)
+## Quick Setup (Linux)
 **One-time setup script** (creates `.venv` and installs deps):
 ```bash
 # Option A: run the helper script
