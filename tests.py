@@ -5,7 +5,7 @@ from calculate_pnl import calculate_pnl
 
 def write_tmp_csv(rows, tmp_path: Path):
     df = pd.DataFrame(rows)
-    p = tmp_path / "trades.csv"
+    p = tmp_path / "trades_sample.csv"
     df.to_csv(p, index=False)
     return p
 
