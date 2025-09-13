@@ -1,6 +1,6 @@
 # PNL_calculate
 Compute realized PnL with fifo/lifo matching (shorts supported). Prints to stdout.
-# `calculate_PNL.py` — Realized PnL with fifo/lifo (shorts supported)
+# `calculate_pnl.py` — Realized PnL with fifo/lifo (shorts supported)
 
 A tiny command-line tool that reads a trades CSV and prints **realized PnL events** using **fifo** or **lifo** inventory matching.  
 - Only prints rows where a trade **matches existing inventory** (pure opening trades are omitted).  
@@ -18,11 +18,11 @@ python3 -m pip install --upgrade pip pandas
 ## Usage
 ```bash
 # fifo (default) or lifo
-python3 calculate_PNL.py trades.csv fifo
-python3 calculate_PNL.py trades.csv lifo
+python3 calculate_pnl.py trades.csv fifo
+python3 calculate_pnl.py trades.csv lifo
 # or make it executable
-chmod +x calculate_PNL.py
-./calculate_PNL.py trades.csv fifo
+chmod +x calculate_pnl.py
+./calculate_pnl.py trades.csv fifo
 ```
 
 ### CSV schema (required columns)
@@ -58,7 +58,7 @@ TIMESTAMP,SYMBOL,BUY_OR_SELL,PRICE,QUANTITY
 
 **Run (fifo):**
 ```bash
-python3 calculate_PNL.py trades.csv fifo
+python3 calculate_pnl.py trades.csv fifo
 ```
 
 **Output:**
@@ -70,7 +70,7 @@ python3 calculate_PNL.py trades.csv fifo
 
 **Run (fifo):**
 ```bash
-python3 calculate_PNL.py trades.csv lifo
+python3 calculate_pnl.py trades.csv lifo
 ```
 
 **Output:**
